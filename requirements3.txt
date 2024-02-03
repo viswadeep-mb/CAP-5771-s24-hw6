@@ -1,4 +1,0 @@
-gradescope-utils>=0.2.3
-numpy
-matplotlib
-pytest
