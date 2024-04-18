@@ -77,6 +77,14 @@ def denclue_clustering():
     # Do the same for the cluster with the smallest value of SSE.
     # All plots must have x and y labels, a title, and the grid overlay.
 
+    """
+    plt.scatter(.....)
+    plt.xlabel(....)
+    plt.ylabel(...)
+    plt.title(...)
+    plot_ARI = plt
+    """
+
     # Plot is the return value of a call to plt.scatter()
     plot_ARI = None
     plot_SSE = None
@@ -87,11 +95,17 @@ def denclue_clustering():
     # parameters to datasets 1, 2, 3, and 4. Compute the ARI for each dataset.
     # Calculate mean and standard deviation of ARI for all five datasets.
 
-    # A list of floats
-    answers["mean_std_ARI"] = None
+    # A single float
+    answers["mean_ARIs"] = None
 
     # A single float
-    answers["mean_ARI"] = None
+    answers["std_ARIs"] = None
+
+    # A single float
+    answers["mean_SSEs"] = None
+
+    # A single float
+    answers["std_SSEs"] = None
 
     return answers
 

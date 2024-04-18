@@ -104,11 +104,17 @@ def spectral_clustering():
     # parameters to datasets 1, 2, 3, and 4. Compute the ARI for each dataset.
     # Calculate mean and standard deviation of ARI for all five datasets.
 
-    # Return a list of floats
-    answers["mean_std_ARI"] = None
+    # A single float
+    answers["mean_ARIs"] = None
 
-    # Return a single float
-    answers["mean_ARI"] = None
+    # A single float
+    answers["std_ARIs"] = None
+
+    # A single float
+    answers["mean_SSEs"] = None
+
+    # A single float
+    answers["std_SSEs"] = None
 
     return answers
 
