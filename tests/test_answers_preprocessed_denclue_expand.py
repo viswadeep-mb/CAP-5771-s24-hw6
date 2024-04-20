@@ -37,6 +37,8 @@ def test_answers_denclue_clustering_denclue_function_function(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -100,6 +102,8 @@ def test_answers_denclue_clustering_plot_original_cluster_scatterplot2d(run_comp
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -163,6 +167,8 @@ def test_answers_denclue_clustering_cluster_parameters_dict_lbrack_str_comma_flo
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     dict_float_choices = {}
@@ -230,6 +236,8 @@ def test_answers_denclue_clustering_1st_group_comma_SSE_dict_lbrack_str_comma_fl
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     dict_float_choices = {}
@@ -297,6 +305,8 @@ def test_answers_denclue_clustering_scatterplot_cluster_with_largest_ARI_scatter
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -360,6 +370,8 @@ def test_answers_denclue_clustering_scatterplot_cluster_with_smallest_SSE_scatte
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -423,6 +435,8 @@ def test_answers_denclue_clustering_mean_ARIs_float(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -486,6 +500,8 @@ def test_answers_denclue_clustering_std_ARIs_float(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -549,6 +565,8 @@ def test_answers_denclue_clustering_mean_SSEs_float(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -612,6 +630,8 @@ def test_answers_denclue_clustering_std_SSEs_float(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol

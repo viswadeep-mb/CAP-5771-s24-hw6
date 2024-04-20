@@ -37,6 +37,8 @@ def test_answers_gaussian_mixture_plot_original_cluster_scatterplot2d(run_comput
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -100,6 +102,8 @@ def test_answers_gaussian_mixture_em_algorithm_function_function(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -163,6 +167,8 @@ def test_answers_gaussian_mixture_log_likelihood_ndarray(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -226,6 +232,8 @@ def test_answers_gaussian_mixture_plot_log_likelihood_lineplot(run_compute):
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
@@ -265,41 +273,43 @@ def test_answers_gaussian_mixture_plot_log_likelihood_lineplot(run_compute):
 
 @max_score(20)
 @hide_errors('')
-def test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack(run_compute):
-    function_name = test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack
+def test_answers_gaussian_mixture_probability_1_mean_list_lbrack_list_lbrack_float_rbrack_rbrack(run_compute):
+    function_name = test_answers_gaussian_mixture_probability_1_mean_list_lbrack_list_lbrack_float_rbrack_rbrack
     kwargs = {'student_directory': 'student_code_with_answers' , 'instructor_directory': 'instructor_code_with_answers'}
     correct_answer = run_compute('expectation_maximization', 'gaussian_mixture', 'i', **kwargs)
     if 'probability_1_mean' not in correct_answer:
         explanation = "Key: 'probability_1_mean' not found in instructor answer!\n"
-        test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack.explanation = explanation
+        test_answers_gaussian_mixture_probability_1_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
         assert False
     else:
         correct_answer = correct_answer['probability_1_mean']
     student_answer = run_compute('expectation_maximization', 'gaussian_mixture', 's', **kwargs)
     if 'probability_1_mean' not in student_answer:
         explanation = "Key: 'probability_1_mean' not found in student answer!\n"
-        test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack.explanation = explanation
+        test_answers_gaussian_mixture_probability_1_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
         assert False
     else:
         student_answer = student_answer['probability_1_mean']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
-    msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_structure = "assert_utilities.check_structure_list_list_float(student_answer, instructor_answer)"
+    msg_answer = "assert_utilities.check_answer_list_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
-    answer_type = 'list[float]'
+    answer_type = 'list[list[float]]'
     question_id = 'gaussian_mixture'
     subquestion_id = 'probability_1_mean'
     partial_score_frac_l = [0.]
@@ -321,48 +331,50 @@ def test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack(ru
         explanation_answer += f'Student answer: {repr(student_answer)}'
         function_name.partial_score_frac = partial_score_frac_l[0]
     explanation = '\n'.join(['==Structure tests==:', explanation_structure, '==Answer tests==:', explanation_answer])
-    test_answers_gaussian_mixture_probability_1_mean_list_lbrack_float_rbrack.explanation = explanation
+    test_answers_gaussian_mixture_probability_1_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
     assert is_success
 
 
 
 @max_score(20)
 @hide_errors('')
-def test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack(run_compute):
-    function_name = test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack
+def test_answers_gaussian_mixture_probability_2_mean_list_lbrack_list_lbrack_float_rbrack_rbrack(run_compute):
+    function_name = test_answers_gaussian_mixture_probability_2_mean_list_lbrack_list_lbrack_float_rbrack_rbrack
     kwargs = {'student_directory': 'student_code_with_answers' , 'instructor_directory': 'instructor_code_with_answers'}
     correct_answer = run_compute('expectation_maximization', 'gaussian_mixture', 'i', **kwargs)
     if 'probability_2_mean' not in correct_answer:
         explanation = "Key: 'probability_2_mean' not found in instructor answer!\n"
-        test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack.explanation = explanation
+        test_answers_gaussian_mixture_probability_2_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
         assert False
     else:
         correct_answer = correct_answer['probability_2_mean']
     student_answer = run_compute('expectation_maximization', 'gaussian_mixture', 's', **kwargs)
     if 'probability_2_mean' not in student_answer:
         explanation = "Key: 'probability_2_mean' not found in student answer!\n"
-        test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack.explanation = explanation
+        test_answers_gaussian_mixture_probability_2_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
         assert False
     else:
         student_answer = student_answer['probability_2_mean']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
-    msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_structure = "assert_utilities.check_structure_list_list_float(student_answer, instructor_answer)"
+    msg_answer = "assert_utilities.check_answer_list_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
-    answer_type = 'list[float]'
+    answer_type = 'list[list[float]]'
     question_id = 'gaussian_mixture'
     subquestion_id = 'probability_2_mean'
     partial_score_frac_l = [0.]
@@ -384,7 +396,7 @@ def test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack(ru
         explanation_answer += f'Student answer: {repr(student_answer)}'
         function_name.partial_score_frac = partial_score_frac_l[0]
     explanation = '\n'.join(['==Structure tests==:', explanation_structure, '==Answer tests==:', explanation_answer])
-    test_answers_gaussian_mixture_probability_2_mean_list_lbrack_float_rbrack.explanation = explanation
+    test_answers_gaussian_mixture_probability_2_mean_list_lbrack_list_lbrack_float_rbrack_rbrack.explanation = explanation
     assert is_success
 
 
@@ -409,22 +421,26 @@ def test_answers_gaussian_mixture_probability_1_covariance_list_lbrack_ndarray_r
     else:
         student_answer = student_answer['probability_1_covariance']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_ndarray(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_ndarray(student_answer, instructor_answer, rel_tol, partial_score_frac_l)"
+    msg_answer = "assert_utilities.check_answer_list_ndarray(student_answer, instructor_answer, rel_tol, exclude_indices, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
+    note = 'Do not grade standard deviations'
+    function_name.note = note
     answer_type = 'list[ndarray]'
     question_id = 'gaussian_mixture'
     subquestion_id = 'probability_1_covariance'
@@ -472,22 +488,26 @@ def test_answers_gaussian_mixture_probability_2_covariance_list_lbrack_ndarray_r
     else:
         student_answer = student_answer['probability_2_covariance']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_ndarray(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_ndarray(student_answer, instructor_answer, rel_tol, partial_score_frac_l)"
+    msg_answer = "assert_utilities.check_answer_list_ndarray(student_answer, instructor_answer, rel_tol, exclude_indices, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
+    note = 'Do not grade standard deviations'
+    function_name.note = note
     answer_type = 'list[ndarray]'
     question_id = 'gaussian_mixture'
     subquestion_id = 'probability_2_covariance'
@@ -535,19 +555,21 @@ def test_answers_gaussian_mixture_probability_1_amplitude_list_lbrack_float_rbra
     else:
         student_answer = student_answer['probability_1_amplitude']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
     rel_tol = 0.01
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, monotone_increasing, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
@@ -598,19 +620,21 @@ def test_answers_gaussian_mixture_probability_2_amplitude_list_lbrack_float_rbra
     else:
         student_answer = student_answer['probability_2_amplitude']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
-    rel_tol = 0.01
+    rel_tol = 0.03
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, monotone_increasing, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
@@ -641,7 +665,7 @@ def test_answers_gaussian_mixture_probability_2_amplitude_list_lbrack_float_rbra
 
 
 
-@max_score(20)
+@max_score(0)
 @hide_errors('')
 def test_answers_gaussian_mixture_average_confusion_matrix_dict_lbrack_NDArray_rbrack(run_compute):
     function_name = test_answers_gaussian_mixture_average_confusion_matrix_dict_lbrack_NDArray_rbrack
@@ -664,7 +688,7 @@ def test_answers_gaussian_mixture_average_confusion_matrix_dict_lbrack_NDArray_r
 
 
 
-@max_score(20)
+@max_score(0)
 @hide_errors('')
 def test_answers_gaussian_mixture_std_confusion_matrix_dict_lbrack_NDArray_rbrack(run_compute):
     function_name = test_answers_gaussian_mixture_std_confusion_matrix_dict_lbrack_NDArray_rbrack
@@ -711,15 +735,17 @@ def test_answers_gaussian_mixture_ARI_list_lbrack_float_rbrack(run_compute):
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
-    rel_tol = 0.01
+    rel_tol = 0.05
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, monotone_increasing, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
@@ -750,7 +776,7 @@ def test_answers_gaussian_mixture_ARI_list_lbrack_float_rbrack(run_compute):
 
 
 
-@max_score(20)
+@max_score(0)
 @hide_errors('')
 def test_answers_gaussian_mixture_SSE_list_lbrack_float_rbrack(run_compute):
     function_name = test_answers_gaussian_mixture_SSE_list_lbrack_float_rbrack
@@ -774,15 +800,17 @@ def test_answers_gaussian_mixture_SSE_list_lbrack_float_rbrack(run_compute):
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
-    rel_tol = 0.01
+    rel_tol = 0.05
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, monotone_increasing, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
@@ -815,69 +843,6 @@ def test_answers_gaussian_mixture_SSE_list_lbrack_float_rbrack(run_compute):
 
 @max_score(20)
 @hide_errors('')
-def test_answers_gaussian_mixture_avg_std_ARI_list_lbrack_float_rbrack(run_compute):
-    function_name = test_answers_gaussian_mixture_avg_std_ARI_list_lbrack_float_rbrack
-    kwargs = {'student_directory': 'student_code_with_answers' , 'instructor_directory': 'instructor_code_with_answers'}
-    correct_answer = run_compute('expectation_maximization', 'gaussian_mixture', 'i', **kwargs)
-    if 'avg_std_ARI' not in correct_answer:
-        explanation = "Key: 'avg_std_ARI' not found in instructor answer!\n"
-        test_answers_gaussian_mixture_avg_std_ARI_list_lbrack_float_rbrack.explanation = explanation
-        assert False
-    else:
-        correct_answer = correct_answer['avg_std_ARI']
-    student_answer = run_compute('expectation_maximization', 'gaussian_mixture', 's', **kwargs)
-    if 'avg_std_ARI' not in student_answer:
-        explanation = "Key: 'avg_std_ARI' not found in student answer!\n"
-        test_answers_gaussian_mixture_avg_std_ARI_list_lbrack_float_rbrack.explanation = explanation
-        assert False
-    else:
-        student_answer = student_answer['avg_std_ARI']
-    local_namespace = {}
-    exclude_indices = []
-    local_namespace['exclude_indices'] = exclude_indices
-    include_indices = []
-    local_namespace['include_indices'] = include_indices
-    rel_tol = 0.01
-    abs_tol = 0.01
-    str_choices = []
-    local_namespace['str_choices'] = str_choices
-    local_namespace['rel_tol'] = rel_tol
-    local_namespace['abs_tol'] = abs_tol
-    keys = None
-    msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
-    local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
-    choices = []
-    local_namespace['choices'] = choices
-    answer_type = 'list[float]'
-    question_id = 'gaussian_mixture'
-    subquestion_id = 'avg_std_ARI'
-    partial_score_frac_l = [0.]
-    local_namespace['partial_score_frac_l'] = partial_score_frac_l
-    function_name.answer_type = answer_type
-    function_name.question_id = question_id
-    function_name.subquestion_id = subquestion_id
-    function_name.partial_score_frac = partial_score_frac_l[0]
-    is_success, explanation_structure = eval(msg_structure, {'__builtins__':{}}, local_namespace)
-    if is_success:
-        is_success, explanation_answer    = eval(msg_answer,    {'__builtins__':{}}, local_namespace)
-        if is_success is True:
-            function_name.partial_score_frac = 1.0
-        else:
-            function_name.partial_score_frac = partial_score_frac_l[0]
-    else: 
-        explanation_answer = 'Failed structural tests, No grade for answer component\n.' 
-        explanation_answer += f'Instructor answer: {repr(correct_answer)}\n'
-        explanation_answer += f'Student answer: {repr(student_answer)}'
-        function_name.partial_score_frac = partial_score_frac_l[0]
-    explanation = '\n'.join(['==Structure tests==:', explanation_structure, '==Answer tests==:', explanation_answer])
-    test_answers_gaussian_mixture_avg_std_ARI_list_lbrack_float_rbrack.explanation = explanation
-    assert is_success
-
-
-
-@max_score(20)
-@hide_errors('')
 def test_answers_gaussian_mixture_avg_std_SSE_list_lbrack_float_rbrack(run_compute):
     function_name = test_answers_gaussian_mixture_avg_std_SSE_list_lbrack_float_rbrack
     kwargs = {'student_directory': 'student_code_with_answers' , 'instructor_directory': 'instructor_code_with_answers'}
@@ -896,19 +861,21 @@ def test_answers_gaussian_mixture_avg_std_SSE_list_lbrack_float_rbrack(run_compu
     else:
         student_answer = student_answer['avg_std_SSE']
     local_namespace = {}
-    exclude_indices = []
+    exclude_indices = [1]
     local_namespace['exclude_indices'] = exclude_indices
     include_indices = []
     local_namespace['include_indices'] = include_indices
-    rel_tol = 0.01
+    rel_tol = 0.3
     abs_tol = 0.01
+    monotone_increasing = False
+    local_namespace['monotone_increasing'] = monotone_increasing
     str_choices = []
     local_namespace['str_choices'] = str_choices
     local_namespace['rel_tol'] = rel_tol
     local_namespace['abs_tol'] = abs_tol
     keys = None
     msg_structure = "assert_utilities.check_structure_list_float(student_answer, instructor_answer)"
-    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, monotone_increasing, partial_score_frac)"
+    msg_answer = "assert_utilities.check_answer_list_float(student_answer, instructor_answer, rel_tol, exclude_indices, monotone_increasing, partial_score_frac_l)"
     local_namespace.update({'array': np.array, 'assert_utilities': assert_utilities, 'student_answer': student_answer, 'instructor_answer': correct_answer, 'keys':keys})
     choices = []
     local_namespace['choices'] = choices
