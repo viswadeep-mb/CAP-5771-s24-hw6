@@ -76,7 +76,7 @@ def jarvis_patrick_clustering():
 
     # groups is the dictionary above
     answers["cluster parameters"] = groups
-    answers["1st group, SSE"] = None
+    answers["1st group, SSE"] = {}
 
     # Create two scatter plots using `matplotlib.pyplot`` where the two
     # axes are the parameters used, with # \sigma on the horizontal axis
@@ -88,26 +88,26 @@ def jarvis_patrick_clustering():
     # All plots must have x and y labels, a title, and the grid overlay.
 
     # Plot is the return value of a call to plt.scatter()
-    plot_ARI = None
-    plot_SSE = None
+    plot_ARI = plt.scatter([1,2,3], [4,5,6])
+    plot_SSE = plt.scatter([1,2,3], [4,5,6])
     answers["cluster scatterplot with largest ARI"] = plot_ARI
-    answers["cluster w scatterplotith smallest SSE"] = plot_SSE
+    answers["cluster scatterplot with smallest SSE"] = plot_SSE
 
     # Pick the parameters that give the largest value of ARI, and apply these
     # parameters to datasets 1, 2, 3, and 4. Compute the ARI for each dataset.
     # Calculate mean and standard deviation of ARI for all five datasets.
 
     # A single float
-    answers["mean_ARIs"] = None
+    answers["mean_ARIs"] = 0.
 
     # A single float
-    answers["std_ARIs"] = None
+    answers["std_ARIs"] = 0.
 
     # A single float
-    answers["mean_SSEs"] = None
+    answers["mean_SSEs"] = 0.
 
     # A single float
-    answers["std_SSEs"] = None
+    answers["std_SSEs"] = 0.
 
     return answers
 

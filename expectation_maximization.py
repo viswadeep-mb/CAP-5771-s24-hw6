@@ -52,35 +52,37 @@ def gaussian_mixture():
 
     # Return a 2D scatterplot of the clusters, colored by id
     # plot_cluster = plt.scatter(....)
+    plot_cluster = plt.scatter([1,2,3], [4,5,6])
     answers["plot_original_cluster"] = plot_cluster
 
     # Return the `em_algorithm` funtion 
     answers["em_algorithm_function"] = em_algorithm
 
     # 1D numpy array of floats
-    answers["log_likelihood"] = None
+    answers["log_likelihood"] = np.zeros([2])   # ERROR
 
     # a line plot using matplotlib.pyplot.plot
     # Make sure to include title, axis labels, and a grid.
     # Save the plot to file "plot_log_likelihood.pdf", and add to your report.
-    answers["plot_log_likelihood"] = None
+    plot_likelihood = plt.plot([1,2,3], [4,5,6])
+    answers["plot_log_likelihood"] = plot_likelihood
 
     # list with the mean and standard deviation (over 10 trials) of the mean vector
     # of the first distribution
-    answers["probability_1_mean"] = None
-    answers["probability_2_mean"] = None
+    answers["probability_1_mean"] = []
+    answers["probability_2_mean"] = []
 
     # list with the mean and standard deviation (over 10 trials) of the covariance matrix
     # of the first distribution. The covariance matrix should be in the standard order.
     # (https://www.cuemath.com/algebra/covariance-matrix/)
     # 
-    answers["probability_1_covariance"] = None
-    answers["probability_2_covariance"] = None
+    answers["probability_1_covariance"] = [np.zeros(1)]
+    answers["probability_2_covariance"] = [np.zeros(1)]
 
     # list with the mean and standard deviation (over 10 trials) of the amplitude \rho_1
     # of the first distribution.
-    answers["probability_1_amplitude"] = None
-    answers["probability_2_amplitude"] = None
+    answers["probability_1_amplitude"] = [0., 0.]
+    answers["probability_2_amplitude"] = [0., 0.]
 
     # Return a 2x2 numpy Array of floats. Average of the confusion matrices of the 10 trials
     answers["average_confusion_matrix"] = None
@@ -91,17 +93,17 @@ def gaussian_mixture():
     answers["std_confusion_matrix"] = None
 
     # Return a list of 10 ARIs (float), one for each sample of 5,000 points
-    answers["ARI"] = None
+    answers["ARI"] = []
 
     # Return a list of 10 SSEs (float), one for each sample of 5,000 points
-    answers["SSE"] = None
+    answers["SSE"] = []
 
 
     # Return the mean and standard deviation of the 10 trials (of 5000 points each)
-    answers["avg_std_ARI"] = None
+    answers["avg_std_ARI"] = []
 
     # Return the mean and standard deviation of the 10 trials (of 5000 points each)
-    answers["avg_std_SSE"] = None
+    answers["avg_std_SSE"] = []
 
     return answers
 

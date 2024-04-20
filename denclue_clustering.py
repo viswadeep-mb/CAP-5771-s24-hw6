@@ -36,7 +36,6 @@ def denclue(
 
     return computed_labels, SSE, ARI
 
-
 def denclue_clustering():
     """
     Performs DENCLUE clustering on a dataset.
@@ -50,6 +49,9 @@ def denclue_clustering():
 
     # Return your `denclue` function
     answers["denclue_function"] = denclue
+
+    plot_cluster = plt.scatter([1,2,3], [4,5,6])
+    answers["plot_original_cluster"] = plot_cluster
 
     # Work with the first 10,000 data points: data[0:10000]
     # Do a parameter study of this data using DENCLUE
@@ -66,7 +68,7 @@ def denclue_clustering():
 
     # Variable `groups` is the dictionary above
     answers["cluster parameters"] = groups
-    answers["1st group, SSE"] = None
+    answers["1st group, SSE"] = {}
 
     # Create two scatter plots using `matplotlib.pyplot`` where the two
     # axes are the parameters used, with \sigma on the horizontal axis
@@ -86,26 +88,26 @@ def denclue_clustering():
     """
 
     # Plot is the return value of a call to plt.scatter()
-    plot_ARI = None
-    plot_SSE = None
-    answers["scatterplot_cluster_with_largest_ARI"] = plot_ARI
-    answers["scatterplot_cluster_with_smallest SSE"] = plot_SSE
+    plot_ARI = plt.scatter([1,2,3], [4,5,6])
+    plot_SSE = plt.scatter([1,2,3], [4,5,6])
+    answers["scatterplot cluster with largest ARI"] = plot_ARI
+    answers["scatterplot cluster with smallest SSE"] = plot_SSE
 
     # Pick the parameters that give the largest value of ARI, and apply these
     # parameters to datasets 1, 2, 3, and 4. Compute the ARI for each dataset.
     # Calculate mean and standard deviation of ARI for all five datasets.
 
     # A single float
-    answers["mean_ARIs"] = None
+    answers["mean_ARIs"] = 0.
 
     # A single float
-    answers["std_ARIs"] = None
+    answers["std_ARIs"] = 0.
 
     # A single float
-    answers["mean_SSEs"] = None
+    answers["mean_SSEs"] = 0.
 
     # A single float
-    answers["std_SSEs"] = None
+    answers["std_SSEs"] = 0.
 
     return answers
 
@@ -115,3 +117,4 @@ if __name__ == "__main__":
     all_answers = denclue_clustering()
     with open("denclue_clustering.pkl", "wb") as fd:
         pickle.dump(all_answers, fd, protocol=pickle.HIGHEST_PROTOCOL)
+

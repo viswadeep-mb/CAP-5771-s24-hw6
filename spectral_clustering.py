@@ -75,7 +75,7 @@ def spectral_clustering():
 
     # groups is the dictionary above
     answers["cluster parameters"] = groups
-    answers["1st group, SSE"] = None
+    answers["1st group, SSE"] = {}
 
     # Identify the cluster with the lowest value of ARI. This implies
     # that you set the cluster number to 5 when applying the spectral
@@ -91,30 +91,31 @@ def spectral_clustering():
     # All plots must have x and y labels, a title, and the grid overlay.
 
     # Plot is the return value of a call to plt.scatter()
-    plot_ARI = None
-    plot_SSE = None
+    plot_ARI = plt.scatter([1,2,3], [4,5,6])
+    plot_SSE = plt.scatter([1,2,3], [4,5,6])
     answers["cluster scatterplot with largest ARI"] = plot_ARI
     answers["cluster scatterplot with smallest SSE"] = plot_SSE
 
     # Plot of the eigenvalues (smallest to largest) as a line plot.
     # Use the plt.plot() function. Make sure to include a title, axis labels, and a grid.
-    answers["eigenvalue plot"] = None
+    plot_eig = plt.plot([1,2,3], [4,5,6])
+    answers["eigenvalue plot"] = plot_eig
 
     # Pick the parameters that give the largest value of ARI, and apply these
     # parameters to datasets 1, 2, 3, and 4. Compute the ARI for each dataset.
     # Calculate mean and standard deviation of ARI for all five datasets.
 
     # A single float
-    answers["mean_ARIs"] = None
+    answers["mean_ARIs"] = 0.
 
     # A single float
-    answers["std_ARIs"] = None
+    answers["std_ARIs"] = 0.
 
     # A single float
-    answers["mean_SSEs"] = None
+    answers["mean_SSEs"] = 0.
 
     # A single float
-    answers["std_SSEs"] = None
+    answers["std_SSEs"] = 0.
 
     return answers
 
