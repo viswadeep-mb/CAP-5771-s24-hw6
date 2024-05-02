@@ -40,7 +40,6 @@ def confusion_matrix(true_labels, predicted_labels):
 
     return conf_matrix
 
-
 def compute_ARI(confusion_matrix: NDArray[np.int32]):
     """
     Compute the Adjusted Rand Index (ARI) metric for evaluating the performance of a clustering algorithm.
@@ -366,6 +365,7 @@ def gaussian_mixture():
     assert max_iter == log_likelihoods.shape[0]
     plot_likelihood = plt.plot(list(range(max_iter)), log_likelihoods)
     plt.title("Log Likelihood vs. Iteration")
+    plt.suptitle('Expectation - Maximization Plots')
     plt.xlabel("Iteration")
     plt.ylabel("Log Likelihood")
     plt.grid(True)
